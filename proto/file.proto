@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package file_upload;
+
+option go_package="./proto";
+
+service FileUpload{
+    rpc Upload(stream FileChunks) returns (Status) {}
+}
+
+message FileChunks{
+    bytes chunks = 1;
+}
+
+message Status{
+    string upload_status = 1;
+}
